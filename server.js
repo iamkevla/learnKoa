@@ -22,7 +22,7 @@ app.use(forceSSL());
 app.use(serve(__dirname + '/public'));
 
 
-app.use(router.routes(app));
+if (!module.parent) app.use(router.routes(app));
 
 router.get('/api/v1/sessions', proxy({
 	target: 'https://dealerportaltest/api/v1/users/login',
