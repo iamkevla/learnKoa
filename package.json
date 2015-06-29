@@ -1,0 +1,18 @@
+{
+  "name": "learnkoa",
+  "version": "1.0.0",
+  "description": "learning koa",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --harmony --harmony_generators server.js"
+  },
+  "author": "kevin vlahos",
+  "license": "ISC",
+  "engines": "^0.12.5",
+  "dependencies": {
+    "koa": "^0.21.0",
+    "koa-force-ssl": "0.0.5",
+    "koa-static": "^1.4.9"
+  }
+}
