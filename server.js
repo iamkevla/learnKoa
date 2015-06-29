@@ -16,7 +16,7 @@ var config = require(__dirname + "/config.js");
 
 var app = koa();
 
-app.use(forceSSL(config.koa['https-port']));
+app.use(forceSSL());
 
 // or use absolute paths
 app.use(serve(__dirname + '/public'));
@@ -34,9 +34,9 @@ console.log('Listening on port ' + config.koa.port);
 
 // SSL options
 var options = {
-    key: fs.readFileSync('private/www.commander.com.key'),
-    cert: fs.readFileSync('private/www.commander.com.cert')
+    key: fs.readFileSync('private/privatekey.pem'),
+    cert: fs.readFileSync('private/certificate.pem')
 }
 
-https.createServer(options, app.callback()).listen(config.koa['https-port']);
-console.log('Listening on port ' + config.koa['https-port']);
+https.createServer(options, app.callback()).listen(443);
+console.log('Listening on port ' + '443');
