@@ -5,6 +5,7 @@ process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 var debug = require('debug')('learnkoa');
 
 var koa = require('koa');
+var cors = require('kcors');
 
 var forceSSL = require('koa-force-ssl');
 var serve = require('koa-static');
@@ -18,6 +19,8 @@ var config = require(__dirname + '/config.js');
 
 var app = koa();
 
+app.use(cors());
+
 app.use(forceSSL('443', 'localhost', true));
 debug('redirect', '3001');
 
@@ -30,9 +33,8 @@ if (!module.parent) app
   .use(router.allowedMethods());
 
 
-router.get('/api/v1/sessions', proxy({
+router.get('/api/v1/*', proxy({
   target: 'https://dealerportaltest/',
-  forward: 'api/v1/users/login',
   secure: false
 }));
 
