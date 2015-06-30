@@ -11,6 +11,7 @@
   "license": "ISC",
   "engines": "^0.12.5",
   "dependencies": {
+    "debug": "^2.2.0",
     "koa": "^0.21.0",
     "koa-force-ssl": "0.0.5",
     "koa-http-proxy": "0.0.1",
